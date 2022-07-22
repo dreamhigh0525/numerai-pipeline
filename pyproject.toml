@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "numerai"
+version = "0.1.0"
+description = ""
+authors = ["wellflat <wellflat@gmail.com>"]
+license = "MIT"
+packages = [
+    {include="src", from="."}
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numerapi = "^2.12.3"
+pandas = "^1.4.3"
+lightgbm = "^3.3.2"
+halo = "^0.0.31"
+pyarrow = "^8.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
