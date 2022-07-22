@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+data/
+models/
+*.pth
+*.pkl
+Pipfile.lock
+poetry.lock
+*.parquet
+*.zip
+*.jpg
+*.png
