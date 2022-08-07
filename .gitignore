@@ -2,6 +2,7 @@
 __pycache__/
 data/
 models/
+pred/
 *.pth
 *.pkl
 Pipfile.lock
