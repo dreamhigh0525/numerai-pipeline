@@ -38,22 +38,23 @@ if __name__ == '__main__':
     napi = NumerAPI(public_id=public_id, secret_key=secret_key)
     current_round = napi.get_current_round()
     print(f'current round: {current_round}')
-    dest = Path(f'../data/v4/{current_round}')
+    cwd = Path(__file__).parent
+    dest = Path(f'{cwd}/../data/v4/{current_round}')
     if args.download:
         dest.mkdir(exist_ok=True, parents=False)
         download_data(napi, dest)
-    
+
     if args.model == 'example':
         submit_example_predictions(napi, dest)
     else:
         live_data, features = read_metadata(args.model, dest)
         print(live_data.shape)
         live_data = predict_data(model_name, features, live_data)
-        neutraize_filepath = f'../models/riskiest_features_{args.model}.pkl'
+        neutraize_filepath = f'{cwd}/../models/riskiest_features_{args.model}.pkl'
         live_data = neutraize_data(neutraize_filepath, model_name, live_data)
         print(live_data.head())
         today = datetime.date.today().strftime('%m%d')
-        pred_filename = f"../pred/live_preds_{model_name}_{current_round}_{today}.csv"
+        pred_filename = f"{cwd}/../pred/live_preds_{model_name}_{current_round}_{today}.csv"
         print(f'write {pred_filename}')
         live_data["prediction"].to_csv(pred_filename)
         if args.submit:

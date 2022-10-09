@@ -13,7 +13,8 @@ EXAMPLE_PREDS_COL = "example_preds"
 
 spinner = Halo(text='', spinner='dots')
 
-MODEL_FOLDER = "../models"
+cwd = Path(__file__).parent
+MODEL_FOLDER = f"{cwd}/../models"
 MODEL_CONFIGS_FOLDER = "model_configs"
 PREDICTION_FILES_FOLDER = "prediction_files"
 
